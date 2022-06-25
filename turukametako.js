@@ -70,19 +70,15 @@ makeTuruKameTakoZanButton.onclick = function () {
             //ツイートエリアの作成
             tweetDivided.innerText = '';
             const anchor = document.createElement('a');
-            const hrefValue = "https://twitter.com/intent/tweet?button_hashtag=" + encodeURIComponent('ツルカメタコ算メーカー') + "&ref_src=twsrc%5Etfw";
             const tweetSentence = makeTweetSentence();
+            const text = tweetSentence + " #ツルカメタコ算メーカー";
+            const hrefValue = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text);
 
-            anchor.setAttribute('href',hrefValue);
-            anchor.setAttribute('class',"twitter-hashtag-button");
-            anchor.setAttribute('data-text',tweetSentence);
-            anchor.innerText = 'Tweet #ツルカメタコ算メーカー';
+            anchor.setAttribute('href', hrefValue);
+            anchor.setAttribute('target', '_blank');
+            anchor.innerHTML = "<i></i><span class='label'>正解したことをツイートする！</span>"
 
             tweetDivided.appendChild(anchor);
-
-            const script = document.createElement('script');
-            script.setAttribute('src',"https://platform.twitter.com/widgets.js");
-            tweetDivided.appendChild(script);
             
         }else{
            // console.log(animalsMap.get(checkedAnimalsArray[0]));
